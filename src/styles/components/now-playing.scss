@@ -16,7 +16,7 @@
   &__cover,
   &__details {
     padding: var(--spacing-m);
-    text-align: center;
+    text-align: left;
     width: 100%;
   }
 
@@ -56,7 +56,7 @@
 
   @media only screen and (min-width: 767px) {
     flex-flow: row nowrap;
-    padding: 10%;
+    padding: 0%;
 
     &__cover,
     &__details {
