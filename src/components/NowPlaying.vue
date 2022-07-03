@@ -238,7 +238,7 @@ export default {
         }
       }
 
-      document.body.style.backgroundImage = 'url("' + this.player.trackAlbum.image + '")';
+      document.body.style.background = 'url("' + this.player.trackAlbum.image + '")';
 
     },
 
