@@ -193,7 +193,7 @@ export default {
 
       document.documentElement.style.setProperty(
       '--player-trackAlbum-image',
-      this.player.trackAlbum.image;
+      this.player.trackAlbum.image
       )
 
 
