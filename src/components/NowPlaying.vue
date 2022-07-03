@@ -191,13 +191,6 @@ export default {
         this.colourPalette.background
       )
 
-      document.documentElement.style.setProperty(
-      '--player-trackAlbum-image',
-      this.player.trackAlbum.image
-      )
-
-
-
     },
 
     /**
@@ -245,6 +238,13 @@ export default {
           image: this.playerResponse.item.album.images[0].url
         }
       }
+
+      document.documentElement.style.setProperty(
+      '--player-trackAlbum-image',
+      this.player.trackAlbum.image
+      )
+
+
     },
 
     /**
