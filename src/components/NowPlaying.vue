@@ -74,7 +74,7 @@ export default {
 
   setBGImage () {
     return 'background-image: url(',this.player.trackAlbum.image,' )';
-  }
+  },
 
   methods: {
     /**
