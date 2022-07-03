@@ -5,7 +5,6 @@
       class="now-playing"
       :class="getNowPlayingClass()"
     >
-      <img src="" id="background-image">
       <div class="now-playing__cover">
         <img
           :src="player.trackAlbum.image"
@@ -190,6 +189,8 @@ export default {
         this.colourPalette.background
       )
 
+      document.getElementById("now-playing").style["background-image"] = this.player.trackAlbum.image ;
+
     },
 
     /**
@@ -237,8 +238,6 @@ export default {
           image: this.playerResponse.item.album.images[0].url
         }
       }
-
-      document.body.style.background = 'url("' + this.player.trackAlbum.image + '")';
 
     },
 
