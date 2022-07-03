@@ -189,9 +189,9 @@ export default {
         this.colourPalette.background
       )
 
-       document.documentElement.style.setProperty(
+      document.documentElement.style.setProperty(
         '--player-trackAlbum-image',
-        this.playerResponse.item.album.images[0].url
+        this.player.trackAlbum.image
       )
 
 
