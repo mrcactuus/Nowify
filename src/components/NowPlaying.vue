@@ -1,9 +1,15 @@
 <template>
   <div id="app">
+    <div id="background-image"
+      :style="{
+        'background-image': none   
+      }"
+    ></div>
     <div
       v-if="player.playing"
       class="now-playing"
       :class="getNowPlayingClass()"
+      :style="setBGImage"
     >
       <img src="" id="background-image">
       <div class="now-playing__cover">
@@ -65,6 +71,10 @@ export default {
   beforeDestroy() {
     clearInterval(this.pollPlaying)
   },
+
+  setBGImage () {
+    return 'background-image: url(',this.player.trackAlbum.image,' )';
+  }
 
   methods: {
     /**
