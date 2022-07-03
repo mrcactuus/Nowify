@@ -5,6 +5,7 @@
       class="now-playing"
       :class="getNowPlayingClass()"
     >
+      <img src="" id="background-image">
       <div class="now-playing__cover">
         <img
           :src="player.trackAlbum.image"
@@ -189,10 +190,9 @@ export default {
         this.colourPalette.background
       )
 
-      document.documentElement.style.setProperty(
-        'background-image',
-        this.player.trackAlbum.image
-      )
+      document.getElementById('background-image').src = 
+      this.player.trackAlbum.image;
+      
 
 
 
