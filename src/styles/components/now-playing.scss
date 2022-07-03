@@ -6,7 +6,7 @@
  */
 .now-playing {
   background-color: var(--colour-background-now-playing);
-  background-image: url('https://codersblock.com/assets/images/blog/colorful-bowls.jpg');
+  background-image: var(--player-trackAlbum-image);
   color: var(--color-text-primary);
   display: flex;
   flex-flow: row nowrap;
@@ -55,6 +55,7 @@
     align-items: center;
     justify-content: center;
     background-color: black;
+    background-image: none;
   }
 
 }
