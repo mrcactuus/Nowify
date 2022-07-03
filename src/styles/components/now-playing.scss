@@ -8,7 +8,7 @@
   background-color: var(--colour-background-now-playing);
   color: var(--color-text-primary);
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   height: 100%;
   padding: var(--spacing-l);
   width: 100%;
@@ -17,24 +17,23 @@
   &__details {
     padding: var(--spacing-m);
     text-align: left;
-    width: 100%;
+    width: 50%;
+    max-width: 960px;
   }
 
   &__cover {
     max-width: 960px;
-    flex-basis: 100%;
   }
 
   &__image {
     box-shadow: 1px 1px 16px -2px rgba(0, 0, 0, .3);
     height: auto;
-    max-width: 100%;
+    max-width: 60vw;
     width: 100%;
-    object-fit: cover;
   }
 
   &__details {
-    text-align: center;
+    text-align: left;
   }
 
   &__track {
@@ -46,8 +45,8 @@
   }
 
   &--active {
-    align-items: normal;
-    justify-content: normal;
+    align-items: center;
+    justify-content: center;
   }
 
   &--idle {
@@ -56,18 +55,4 @@
     justify-content: center;
   }
 
-  @media only screen and (min-width: 767px) {
-    flex-flow: row nowrap;
-    padding: 0%;
-
-    &__cover,
-    &__details {
-      width: 50%;
-      max-width: 960px;
-    }
-
-    &__details {
-      text-align: left;
-    }
-  }
 }
