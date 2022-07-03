@@ -190,7 +190,7 @@ export default {
       )
 
       document.documentElement.style.setProperty(
-        '--player-trackAlbum-image',
+        'background-image',
         this.player.trackAlbum.image
       )
 
