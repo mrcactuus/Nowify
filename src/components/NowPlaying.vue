@@ -189,8 +189,6 @@ export default {
         this.colourPalette.background
       )
 
-      document.getElementById("now-playing").style["background-image"] = this.player.trackAlbum.image ;
-
     },
 
     /**
