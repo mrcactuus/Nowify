@@ -4,7 +4,6 @@
       v-if="player.playing"
       class="now-playing"
       :class="getNowPlayingClass()"
-      :style="setBGImage"
     >
       <img src="" id="background-image">
       <div class="now-playing__cover">
@@ -239,11 +238,7 @@ export default {
         }
       }
 
-      document.documentElement.style.setProperty(
-      '--player-trackAlbum-image',
-      this.player.trackAlbum.image
-      )
-
+      document.body.style.backgroundImage = this.player.trackAlbum.image;
 
     },
 
