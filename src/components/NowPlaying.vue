@@ -19,6 +19,11 @@
     </div>
     <div v-else class="now-playing" :class="getNowPlayingClass()">
       <h1 class="now-playing__idle-heading">No music is playing 😔</h1>
+      <h2 class="DateTime" v-text="getDateTime">
+      <div class="hour">{{hours}}</div>
+      <div class="dots">:</div>
+      <div class="min">{{minutes}}</div>
+      </h2>
     </div>
   </div>
 </template>
@@ -43,7 +48,9 @@ export default {
       playerResponse: {},
       playerData: this.getEmptyPlayer(),
       colourPalette: '',
-      swatches: []
+      swatches: [],
+      hours: 0,
+      seconds: 0
     }
   },
 
@@ -58,7 +65,8 @@ export default {
   },
 
   mounted() {
-    this.setDataInterval()
+    this.setDataInterval(),
+    this.setTime()
   },
 
   beforeDestroy() {
@@ -270,7 +278,20 @@ export default {
     handleExpiredToken() {
       clearInterval(this.pollPlaying)
       this.$emit('requestRefreshToken')
+    },
+
+     setTime () {
+      setInterval(() => {
+        const date = new Date()
+        this.hours = date.getHours()
+        this.minutes = this.checkSingleDigit(date.getMinutes())
+        this.seconds = this.checkSingleDigit(date.getSeconds())
+      }, 1000)
+    },
+    checkSingleDigit (digit) {
+      return ('0' + digit).slice(-2)
     }
+  
   },
   watch: {
     /**
