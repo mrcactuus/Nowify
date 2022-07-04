@@ -76,7 +76,13 @@
   &__date {
     width: 100%;
     flex-flow: row nowrap;
-  
+    justify-content: center;
+  }
+
+  &__hour,
+  &__dots,
+  &__min {
+    width: auto;
   }
 
   &__weekday {
