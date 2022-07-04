@@ -59,6 +59,7 @@
 
   &--idle {
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     background-color: black;
@@ -72,6 +73,7 @@
 
   &__date {
     width: 100%;
+    flex-flow: row nowrap;
   
   }
 
