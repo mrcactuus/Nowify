@@ -54,9 +54,7 @@ export default {
       colourPalette: '',
       swatches: [],
       hours: 0,
-      seconds: 0,
-      weekdays: ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'],
-      months: ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "October", "November", "December"]
+      seconds: 0
     }
   },
 
@@ -288,13 +286,15 @@ export default {
 
      setTime () {
       setInterval(() => {
-        const date = new Date()
-        this.hours = date.getHours()
-        this.minutes = this.checkSingleDigit(date.getMinutes())
-        this.seconds = this.checkSingleDigit(date.getSeconds())
-        this.day = date.getDate()
-        this.weekday = weekdays[date.getDay()]
-        this.month = months[date.getMonth()]
+        var weekdays = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
+        var months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "October", "November", "December"];
+        const date = new Date();
+        this.hours = date.getHours();
+        this.minutes = this.checkSingleDigit(date.getMinutes());
+        this.seconds = this.checkSingleDigit(date.getSeconds());
+        this.day = date.getDate();
+        this.weekday = weekdays[date.getDay()];
+        this.month = months[date.getMonth()];
       }, 1000)
     },
     checkSingleDigit (digit) {
