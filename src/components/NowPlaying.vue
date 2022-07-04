@@ -19,7 +19,7 @@
     </div>
     <div v-else class="now-playing" :class="getNowPlayingClass()">
       <h1 class="now-playing__idle-heading">No music is playing 😔</h1>
-      <h2 class="DateTime" v-text="getDateTime">
+      <h2 class="DateTime">
       <div class="hour">{{hours}}</div>
       <div class="dots">:</div>
       <div class="min">{{minutes}}</div>
