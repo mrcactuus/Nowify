@@ -19,14 +19,14 @@
 
   &__cover,
   &__details {
-    padding: var(--spacing-m);
+    padding: var(--spacing-l);
     text-align: left;
     width: 50%;
     max-width: 960px;
   }
 
   &__cover {
-    max-width: 960px;
+    max-width: 900px;
     padding: 0%;
   }
 
