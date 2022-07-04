@@ -6,7 +6,8 @@
 
  @font-face {
   font-display: swap;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  // font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
   font-weight: normal;
 }
@@ -23,7 +24,7 @@
 
   --font-size-base: 60px;
 
-  --font-body: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  --font-body: 'Roboto', 'Source Sans Pro', Helvetica, Arial, sans-serif;
   --font-weight-body: 400;
   --font-weight-heading: 900;
 
