@@ -19,14 +19,14 @@
     </div>
     <div v-else class="now-playing" :class="getNowPlayingClass()">
       <h1 class="now-playing__idle-heading">
-      <div class="hour">{{hours}}</div>
-      <div class="dots">:</div>
-      <div class="min">{{minutes}}</div>
+      <div class="now-playing__hour">{{hours}}</div>
+      <div class="now-playing__dots">:</div>
+      <div class="now-playing__min">{{minutes}}</div>
       </h1>
-      <h2 class="DateTime">
-      <div class="hour">{{weekday}}</div>
-      <div class="day">{{day}}</div>
-      <div class="month">{{month}}</div>
+      <h2 class="now-playing__date">
+      <div class="now-playing__hour">{{weekday}}</div>
+      <div class="now-playing__day">{{day}}</div>
+      <div class="now-playing__month">{{month}}</div>
       </h2>
     </div>
   </div>

@@ -69,12 +69,14 @@
   &__idle-heading {
     width: 100%;
     text-align: center;
+    display: flex;
     flex-flow: row nowrap;
   
   }
 
   &__date {
     width: 100%;
+    display: flex;
     flex-flow: row nowrap;
     justify-content: center;
   }
