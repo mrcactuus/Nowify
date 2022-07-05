@@ -18,16 +18,7 @@
       </div>
     </div>
     <div v-else class="now-playing" :class="getNowPlayingClass()">
-      <h1 class="now-playing__idle-heading">
-      <div class="now-playing__hour">{{hours}}</div>
-      <div class="now-playing__dots">:</div>
-      <div class="now-playing__min">{{minutes}}</div>
-      </h1>
-      <h2 class="now-playing__date">
-      <div class="now-playing__hour">{{weekday}}</div>
-      <div class="now-playing__day">{{day}}</div>
-      <div class="now-playing__month">{{month}}</div>
-      </h2>
+      <h1 class="now-playing__idle-heading"></h1>
     </div>
   </div>
 </template>
@@ -53,8 +44,6 @@ export default {
       playerData: this.getEmptyPlayer(),
       colourPalette: '',
       swatches: [],
-      hours: 0,
-      seconds: 0
     }
   },
 
@@ -69,8 +58,7 @@ export default {
   },
 
   mounted() {
-    this.setDataInterval(),
-    this.setTime()
+    this.setDataInterval()
   },
 
   beforeDestroy() {
@@ -283,23 +271,6 @@ export default {
       clearInterval(this.pollPlaying)
       this.$emit('requestRefreshToken')
     },
-
-     setTime () {
-      setInterval(() => {
-        var weekdays = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
-        var months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "October", "November", "December"];
-        const date = new Date();
-        this.hours = date.getHours();
-        this.minutes = this.checkSingleDigit(date.getMinutes());
-        this.seconds = this.checkSingleDigit(date.getSeconds());
-        this.day = date.getDate();
-        this.weekday = weekdays[date.getDay()];
-        this.month = months[date.getMonth()];
-      }, 1000)
-    },
-    checkSingleDigit (digit) {
-      return ('0' + digit).slice(-2)
-    }
   
   },
   watch: {
