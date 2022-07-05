@@ -62,6 +62,7 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    color:  rgb(210, 210, 210);
     background-color: black;
     width: 100%;
   }
@@ -76,6 +77,14 @@
   
   }
 
+  &__hour,
+  &__dots,
+  &__min {
+    width: auto;
+    text-align: center;
+    
+  }
+
   &__date {
     width: 100%;
     display: flex;
@@ -83,26 +92,22 @@
     justify-content: center;
   }
 
-  &__hour,
-  &__dots,
-  &__min {
-    width: auto;
-    text-align: center;
+  &__weekday,
+  &__day,
+  &__month {
+    justify-content: center;
   }
 
   &__weekday {
     width: 40%;
-  
   }
 
   &__day {
     width: 20%;
-  
   }
 
   &__month {
     width: 40%;
-  
   }
 
 }
