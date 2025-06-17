@@ -276,7 +276,7 @@ export default {
     /**
      * Watch the auth object returned from Spotify.
      */
-    auth(newVal, _oldVal) {
+    auth(newVal) {
       if (newVal.status === false) {
         clearInterval(this.pollPlaying)
       }
