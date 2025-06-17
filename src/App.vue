@@ -186,7 +186,11 @@ export default {
         playing: data.is_playing,
         trackTitle: data.item?.name || '',
         trackArtists: data.item?.artists?.map(a => a.name).join(', ') || '',
-        trackAlbum: data.item?.album?.name || ''
+        trackAlbum: {
+          title: data.item?.album?.name || '',
+          image: data.item?.album?.images?.[0]?.url || ''
+        }
+
       };
     }
 
