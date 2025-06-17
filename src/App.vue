@@ -80,7 +80,10 @@ export default {
     }
   },
 
-  mounted() {},
+  mounted() {
+      this.pollNowPlayingWithPriority();
+      setInterval(this.pollNowPlayingWithPriority, 10000); // every 10 seconds
+  },
 
   methods: {
     /**
@@ -103,7 +106,7 @@ export default {
      */
     updateCurrentTrack(value) {
       this.player = value
-    }
+    },
 
    /**
      * add two user refresh logic
@@ -182,7 +185,7 @@ export default {
         trackArtists: data.item?.artists?.map(a => a.name).join(', ') || '',
         trackAlbum: data.item?.album?.name || ''
       };
-    },
+    }
 
     /**
      * end of added two user refresh logic
