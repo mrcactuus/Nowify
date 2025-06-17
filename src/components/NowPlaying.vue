@@ -87,7 +87,7 @@ export default {
          * Fetch error.
          */
         if (!response.ok) {
-          throw new Error(An error has occured: ${response.status})
+          throw new Error("An error has occured: ${response.status}")
         }
 
         /**
