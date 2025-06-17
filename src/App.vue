@@ -104,6 +104,92 @@ export default {
     updateCurrentTrack(value) {
       this.player = value
     }
+
+   /**
+     * add two user refresh logic
+     * 
+     */
+ 
+    
+      async refreshAccessTokenFor(user) {
+      const clientId = this.auth[`clientId${user}`];
+      const refreshToken = this.auth[`refreshToken${user}`];
+      const clientSecret = this.auth.clientSecret;
+
+      const encoded = btoa(`${clientId}:${clientSecret}`);
+
+      const res = await fetch(this.endpoints.token, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: `Basic ${encoded}`
+        },
+        body: new URLSearchParams({
+          grant_type: 'refresh_token',
+          refresh_token: refreshToken
+        })
+      });
+
+      const data = await res.json();
+      return data.access_token;
+    },
+
+    async fetchNowPlaying(accessToken) {
+      const res = await fetch(`${this.endpoints.base}/${this.endpoints.nowPlaying}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      });
+
+      if (!res.ok) return null;
+
+      const data = await res.json();
+      return data;
+    },
+
+    async pollNowPlayingWithPriority() {
+      try {
+        const accessToken1 = await this.refreshAccessTokenFor('1');
+        const data1 = await this.fetchNowPlaying(accessToken1);
+
+        if (data1 && data1.is_playing) {
+          this.player = this.transformPlaybackData(data1);
+          return;
+        }
+
+        const accessToken2 = await this.refreshAccessTokenFor('2');
+        const data2 = await this.fetchNowPlaying(accessToken2);
+
+        if (data2 && data2.is_playing) {
+          this.player = this.transformPlaybackData(data2);
+        } else {
+          this.player = {
+            playing: false,
+            trackArtists: [],
+            trackTitle: '',
+            trackAlbum: []
+          };
+        }
+      } catch (err) {
+        console.error("Polling failed:", err);
+      }
+    },
+
+    transformPlaybackData(data) {
+      return {
+        playing: data.is_playing,
+        trackTitle: data.item?.name || '',
+        trackArtists: data.item?.artists?.map(a => a.name).join(', ') || '',
+        trackAlbum: data.item?.album?.name || ''
+      };
+    },
+
+    /**
+     * end of added two user refresh logic
+     * 
+     */
+ 
+  
   },
 
   watch: {
