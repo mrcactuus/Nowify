@@ -154,25 +154,28 @@ export default {
       try {
         const accessToken1 = await this.refreshAccessTokenFor('1');
         const data1 = await this.fetchNowPlaying(accessToken1);
-
-        if (data1 && data1.is_playing) {
+    
+        if (data1?.is_playing) {
           this.player = this.transformPlaybackData(data1);
           return;
         }
-
+    
         const accessToken2 = await this.refreshAccessTokenFor('2');
         const data2 = await this.fetchNowPlaying(accessToken2);
-
-        if (data2 && data2.is_playing) {
+    
+        if (data2?.is_playing) {
           this.player = this.transformPlaybackData(data2);
-        } else {
-          this.player = {
-            playing: false,
-            trackArtists: [],
-            trackTitle: '',
-            trackAlbum: []
-          };
+          return;
         }
+    
+        // Fallback if neither user is playing
+        this.player = {
+          playing: false,
+          trackArtists: [],
+          trackTitle: '',
+          trackAlbum: []
+        };
+    
       } catch (err) {
         console.error("Polling failed:", err);
       }
