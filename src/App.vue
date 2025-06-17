@@ -37,7 +37,14 @@ export default {
         clientSecret: process.env.VUE_APP_SP_CLIENT_SECRET,
         authCode: '',
         accessToken: '',
-        refreshToken: ''
+        refreshToken: '',
+      /**
+      * added for two user accounts
+      */
+        clientId1: process.env.SPOTIFY_CLIENT_ID_USER1,
+        refreshToken1: process.env.SPOTIFY_REFRESH_TOKEN_USER1,
+        clientId2: process.env.SPOTIFY_CLIENT_ID_USER2,
+        refreshToken2: process.env.SPOTIFY_REFRESH_TOKEN_USER2
       },
       endpoints: {
         auth: 'https://accounts.spotify.com/authorize',
